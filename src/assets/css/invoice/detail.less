@@ -1,0 +1,541 @@
+// 发票详情
+.col-md-1 {
+  width: 8.33333333%;
+}
+
+.col-md-3 {
+  width: 25%;
+  padding: 0 15px;
+  float: left;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.invoice-toggle-detail {
+  position: absolute;
+  right: 0;
+  top: -16px;
+}
+
+/deep/ .el-collapse-item__header {
+  height: auto;
+}
+
+.m-bill01 {
+  position: relative;
+  border: 1px solid #E85252;
+  margin-bottom: 10px;
+}
+
+.m-bill01:before {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 99.6%;
+  position: absolute;
+  left: -1px;
+  top: 2px;
+  background: url(../../../assets/images/invoice/bill-dot.png) repeat-y;
+  transform: rotate(180deg);
+}
+
+.m-bill01:after {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 99.6%;
+  position: absolute;
+  right: -1px;
+  top: 0px;
+  background: url(../../../assets/images/invoice/bill-dot.png) repeat-y;
+}
+
+.m-bill01 .hd {
+  padding: 15px 20px 14px 20px;
+  position: relative;
+}
+
+.m-bill01 .hd .del {
+  position: absolute;
+  top: 0;
+  right: 35px;
+  width: 33px;
+  height: 40px;
+  text-align: center;
+  color: #fff;
+  background: #E85252;
+  cursor: pointer;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.m-bill01 .hd .del i {
+  font-size: 22px;
+  line-height: 16px;
+}
+
+.m-bill01 .hd em {
+  display: inline-block;
+}
+
+.m-bill01 .hd .ic-ma {
+  width: 33%;
+  height: 62px;
+  background: url(../../../assets/images/invoice/bill-ma.png) no-repeat left top;
+  color: #7B8695;
+  padding-left: 70px;
+  font-size: 25px;
+  line-height: 25px;
+  font-weight: 500;
+}
+
+.m-bill01 .hd .ic-stub {
+  width: 40%;
+  height: 73px;
+  text-align: center
+}
+
+.m-bill01 .hd .ic-stub-01 {
+  background: url(../../../assets/images/invoice/bill-seal1.png) no-repeat 25%;
+}
+
+.m-bill01 .hd .ic-stub-02 {
+  background: url(../../../assets/images/invoice/bill-seal2.png) no-repeat 25%;
+}
+
+.m-bill01 .hd .ic-stub + p {
+  width: 20%
+}
+
+/*.m-bill01 .hd .ic-03{ display:block;width: 144px; height: 21px; background:url(../images/newIcons/bill-num.png) no-repeat;}*/
+.m-bill01 .hd .date {
+  display: inline-block;
+  margin: 24px 0 0 5px;
+}
+
+.m-bill01 .hd .num {
+  display: block;
+  padding-left: 40px;
+  background: url(../../../assets/images/invoice/bill-num.png) no-repeat;
+  font-size: 22px;
+  line-height: 22px;
+  font-weight: 500;
+  color: #666;
+}
+
+.m-bill01 .msg01 p {
+  line-height: 24px;
+}
+
+.m-bill01 .lab {
+  color: #913131;
+}
+
+.m-bill01 .text {
+  color: #0E8EE7;
+}
+
+.m-bill01 .item-1 {
+  position: relative;
+  z-index: 2;
+  margin: 0 10px 10px 10px;
+}
+
+.m-bill01 .table {
+  border-color: #E85252;
+  margin-bottom: 0;
+  border: 0;
+}
+
+.m-bill01 .table.bor-b-1 {
+  border-bottom: 1px solid #E85252;
+}
+
+.m-bill01 .table td.wd-01 {
+  width: 47%;
+}
+
+.m-bill01 .item-1 .td-b-n td {
+  padding: 0;
+  height: auto;
+  line-height: 14px;
+  border-top: none;
+  border-bottom: none;
+}
+
+.m-bill01 .item-1 .td-b-n td .hd-01 {
+  height: auto;
+  line-height: 22px;
+}
+
+.m-bill01 .w-30 {
+  color: #913131;
+}
+
+.m-bill01 .hd-01 {
+  height: 35px;
+}
+
+.m-bill01 .table-bordered tr td, .m-bill01 .table-bordered tr th {
+  border-color: #E85252;
+  border-bottom: none;
+}
+
+.m-bill01 .table-bordered > thead > tr > th {
+}
+
+.m-bill01 .table td.ver-top {
+  vertical-align: top;
+}
+
+.m-bill01 .table td.bor-l-n {
+  border-left: none;
+}
+
+.m-bill01 .table td.bor-r-n {
+  border-right: none;
+}
+
+.m-bill01 .table td.bor-t-n {
+  border-top: none;
+}
+
+.m-bill01 .font {
+  position: absolute;
+  z-index: 1;
+  top: 138px;
+  left: 30px;
+}
+
+.m-bill01 .font i {
+  display: inline-block;
+  width: 239px;
+  height: 48px;
+  margin-left: 55px;
+  background: url(../../../assets/images/invoice/bill-font.png) no-repeat;
+  transform: rotate(35deg);
+}
+
+.m-bill01 .font .ft01 {
+  position: absolute;
+  left: -57px;
+  bottom: -178px;
+}
+
+.m-bill01 .font .ft02 {
+  position: absolute;
+  left: 269px;
+  bottom: -153px;
+}
+
+.m-bill01 .font .ft03 {
+  position: absolute;
+  left: 556px;
+  top: 38px;
+}
+
+.m-bill01 .text .ic-del {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background: url(../../../assets/images/invoice/ic-cornerdel.png) no-repeat;
+  vertical-align: sub;
+  margin-right: 5px;
+}
+
+.m-bill01 .table {
+  border-color: #E85252;
+  margin-bottom: 0;
+  border: 0;
+}
+
+.m-bill01 .table.bor-b-1 {
+  border-bottom: 1px solid #E85252;
+}
+
+.m-bill01 .table td.wd-01 {
+  width: 47%;
+}
+
+.m-bill01 .item-1 .td-b-n td {
+  padding: 0;
+  height: auto;
+  line-height: 14px;
+  border-top: none;
+  border-bottom: none;
+}
+
+.m-bill01 .item-1 .td-b-n td .hd-01 {
+  height: auto;
+  line-height: 22px;
+}
+
+.m-bill01 .w-30 {
+  color: #913131;
+}
+
+.m-bill01 .hd-01 {
+  height: 35px;
+}
+
+.m-bill01 .table-bordered tr td, .m-bill01 .table-bordered tr th {
+  border-color: #E85252;
+  border-bottom: 0;
+}
+
+.m-bill01 .table-bordered > thead > tr > th {
+}
+
+.m-bill01 .table td.ver-top {
+  vertical-align: top;
+}
+
+.m-bill01 .table td.bor-l-n {
+  border-left: none;
+}
+
+.m-bill01 .table td.bor-r-n {
+  border-right: none;
+}
+
+.m-bill01 .table td.bor-t-n {
+  border-top: none;
+}
+
+.m-bill01 .font {
+  position: absolute;
+  z-index: 1;
+  top: 138px;
+  left: 30px;
+}
+
+.m-bill01 .font i {
+  display: inline-block;
+  width: 239px;
+  height: 48px;
+  margin-left: 55px;
+  background: url(../../../assets/images/invoice/bill-font.png) no-repeat;
+  transform: rotate(35deg);
+}
+
+.m-bill01 .font .ft01 {
+  position: absolute;
+  left: -57px;
+  bottom: -178px;
+}
+
+.m-bill01 .font .ft02 {
+  position: absolute;
+  left: 269px;
+  bottom: -153px;
+}
+
+.m-bill01 .font .ft03 {
+  position: absolute;
+  left: 556px;
+  top: 38px;
+}
+
+.m-bill01 .text .ic-del {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background: url(../../../assets/images/invoice/ic-cornerdel.png) no-repeat;
+  vertical-align: sub;
+  margin-right: 5px;
+}
+
+.table-bordered > thead > tr > th,
+.table-bordered > tbody > tr > th,
+.table-bordered > tfoot > tr > th,
+.table-bordered > thead > tr > td,
+.table-bordered > tbody > tr > td,
+.table-bordered > tfoot > tr > td {
+  border: 1px solid #ddd;
+}
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #ddd;
+}
+
+.tab-sty01 {
+  width: 95%;
+  margin: 0 auto 10px auto;
+  border: 1px solid #E1E1E1;
+}
+
+.panel-body .td-font01 td {
+  font-weight: normal;
+  vertical-align: middle;
+  height: 44px;
+}
+
+.panel-body .td-font01 th {
+  font-weight: normal;
+  color: #444;
+}
+
+.panel-body .td-sty01 {
+  width: 40%;
+  float: left;
+  margin-top: 7px;
+}
+
+.panel-body .td-sty02 {
+  width: 30%;
+  float: left;
+  margin-top: 7px;
+}
+
+.panel-body .td-sty03 {
+  width: 25%;
+}
+
+.table > caption + thead > tr:first-child > th, .table > colgroup + thead > tr:first-child > th, .table > thead:first-child > tr:first-child > th, .table > caption + thead > tr:first-child > td, .table > colgroup + thead > tr:first-child > td, .table > thead:first-child > tr:first-child > td {
+  border-top: 0;
+}
+
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+.m-panel01 {
+  border: 1px solid #cfd8e6;
+}
+
+.m-panel01 .panel-heading {
+  height: 30px;
+  line-height: 30px;
+  color: #3184C9;
+  background: #e8effc;
+  padding: 0 15px;
+  font-size: 14px;
+}
+
+.m-panel01 .panel-heading.bg {
+  background: #fff;
+  color: #444;
+}
+
+.m-panel01 .panel-heading h4 {
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  line-height: 30px;
+}
+
+.m-frm01 {
+  padding: 10px 0 5px 0;
+}
+
+.ic-bill-normal, .ic-bill-cancel, .ic-bill-red {
+  display: block;
+  width: 79px;
+  height: 56px;
+  margin-top: -10px;
+}
+
+.ic-bill-normal {
+  background: url(../../../assets/images/invoice/bill-normal.png) no-repeat center center;
+}
+
+.ic-bill-cancel {
+  background: url(../../../assets/images/invoice/bill-cancel.png) no-repeat center center;
+}
+
+.ic-bill-red {
+  background: url(../../../assets/images/invoice/bill-red.png) no-repeat center center;
+}
+
+.panel-body {
+  background-color: #ffffff;
+}
+
+.panel-body {
+  padding: 10px;
+}
+
+.m-line06 {
+  position: relative;
+}
+
+.m-line06:before {
+  position: absolute;
+  width: 93%;
+  left: 0;
+  display: block;
+  border-bottom: 1px dashed #0e8ee7;
+  content: ''
+}
+
+.m-line06 .mt--10 {
+  margin-top: -10px;
+}
+
+.m-line06 .deg0 {
+  transform: rotate(0deg);
+  transition: transform .1s;
+}
+
+.u-aim {
+  color: #0E8EE7 !important;
+  cursor: pointer;
+}
+
+/*发票信息*/
+.m-bill02{ position: relative;border: 1px dotted #e3e6f1;background: #e3e6f1;padding: 10px;}
+.m-bill02:before{content: '';display: block; width:6px; height:99.6%;position: absolute; left:-1px; top:-1px;background:url(../../../assets/images/invoice/bill-dot-1.png) repeat-y; }
+.m-bill02:after{content: '';display: block; width:6px; height:99.6%;position: absolute; right:-2px; top:0px;background:url(../../../assets/images/invoice/bill-dot-2.png) repeat-y;}
+.bg-e8effc{background: #e8effc}
+.bg-F0F1F5{background: #F0F1F5}
+.m-bill02 .table{background: #fff}
+.m-bill02{position: relative}
+.bor-t-n{border-top:none!important;}
+.bold{font-weight: 700!important;}
+.normal{font-weight:normal!important;}
+.table.normal>tbody>tr>td{font-weight: normal!important;}
+.table.normal>tbody>tr>td.bold{font-weight:700!important;}
+.table-bordered>thead>tr>th, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>tbody>tr>td, .table-bordered>tfoot>tr>td {
+  border: 1px solid #ddd;
+}
+.m-panel06{border-color:#cfd8e6}
+.m-panel06 .panel-heading{height:40px; line-height:40px; color:#303133; background:#F0F1F5; padding:0 20px; font-size:14px;border-color: #cfd8e6; font-weight:bold;}
+.m-frm01 .lab {
+  font-weight: normal;
+  color: #444;
+  float: left;
+  line-height: 28px;
+  width: 120px;
+  padding: 0;
+  text-align: right;
+}
+.col-md-6 {
+  width: 50%;
+  float: left;
+}
+.m-frm01 .text {
+  color: #444;
+  float: left;
+  line-height: 28px;
+}
+.table.td-h30>tbody>tr>td {
+  height: 30px;
+  vertical-align: middle;
+}
+.panel-body {
+  padding: 10px;
+}
+.header-left, .header-right {
+  display: flex;
+  align-items: center;
+}
+table thead th.wd-03{width: 100px;}
+table thead th.wd-05{width: 180px;}

@@ -1,0 +1,168 @@
+.content {
+  height: 835px;
+  position: relative;
+  background: #fff;
+}
+.content .header-button {
+  z-index: 999;
+  position: fixed;
+  right: 20px;
+  top: 93px;
+}
+.content header {
+  height: 50px;
+  background: #f8f8f8;
+  line-height: 50px;
+  padding: 80px 22px 0 40px;
+}
+.content header /deep/ .el-select .el-input__inner {
+  cursor: text;
+}
+.content header h3 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #303133;
+}
+.content .form-detail .detail-title {
+  height: 40px;
+  background: #f2f2f2;
+  line-height: 40px;
+}
+.content .form-detail .detail-title .user-name {
+  width: 90px;
+  height: 100%;
+  background: #409eff;
+  color: #fff;
+  padding-left: 30px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.content .form-detail .employee .employee-title,
+.content .form-detail .family .employee-title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 56px;
+  line-height: 56px;
+  border-bottom: 1px solid #ddd;
+}
+.content .form-detail .employee .employee-title .title-name,
+.content .form-detail .family .employee-title .title-name {
+  font-size: 16px;
+  color: #303133;
+  font-weight: bold;
+  margin-left: 12px;
+}
+.content .form-detail .employee .demo-form-inline,
+.content .form-detail .family .demo-form-inline {
+  display: flex;
+  justify-content: space-between;
+}
+.content .form-detail .employee .demo-form-inline /deep/ .el-input__inner,
+.content .form-detail .family .demo-form-inline /deep/ .el-input__inner {
+  width: 260px;
+}
+.content .form-detail .employee .demo-form-inline /deep/ .el-input__prefix,
+.content .form-detail .family .demo-form-inline /deep/ .el-input__prefix {
+  display: none;
+}
+.content .form-detail .employee .demo-form-inline2,
+.content .form-detail .family .demo-form-inline2 {
+  position: relative;
+  padding-top: 20px;
+  box-sizing: border-box;
+  margin-bottom: 5px;
+  border: 1px dashed #ddd;
+}
+.content .form-detail .employee .demo-form-inline2 .delete:last-child,
+.content .form-detail .family .demo-form-inline2 .delete:last-child {
+  position: absolute;
+  width: 21px;
+  height: 20px;
+  right: -12px;
+  top: -12px;
+}
+.content .form-detail .employee .demo-form-inline2:last-child,
+.content .form-detail .family .demo-form-inline2:last-child {
+  position: relative;
+}
+.content .form-detail .employee .demo-form-inline2:last-child .delete:last-child,
+.content .form-detail .family .demo-form-inline2:last-child .delete:last-child {
+  position: absolute;
+  width: 21px;
+  height: 20px;
+  right: -12px;
+  top: -12px;
+}
+.content .form-detail .employee .add-method,
+.content .form-detail .family .add-method {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px dashed #ddd;
+}
+.content .form-detail .family .demo-form-inline {
+  display: flex;
+  flex-direction: column;
+}
+.content .form-detail .family .demo-form-inline div {
+  display: flex;
+  justify-content: space-between;
+}
+.content .detail-footer .footer-title {
+  height: 40px;
+  background: #f2f2f2;
+  line-height: 40px;
+}
+.content .detail-footer .footer-title .user-name {
+  width: 90px;
+  height: 100%;
+  background: #409eff;
+  color: #fff;
+  padding-left: 30px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.content .detail-footer .submit {
+  height: 144px;
+  text-align: center;
+}
+.content .detail-footer .submit .el-button {
+  width: 120px;
+  height: 32px;
+  line-height: 32px;
+  padding: 0;
+}
+.header-search {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.header-search .search-select {
+  width: 580px;
+  box-shadow: 0px 0px 5px 0px rgba(55, 55, 55, 0.3);
+}
+.header-search .search-select .ic-search {
+  line-height: 45px;
+  font-size: 18px;
+  margin-left: 15px;
+}
+.header-search .search-select /deep/ .el-input--suffix .el-input__inner {
+  padding-right: 15px;
+  padding-left: 60px;
+  height: 45px!important;
+}
+ /deep/ .el-select .el-input__inner {
+  cursor: text;
+}
+.ic-employee-empty {
+  display: inline-block;
+  width: 281px;
+  height: 198px;
+  background: url("../../images/ic-employee-empty.png");
+  margin-top: 117px;
+}

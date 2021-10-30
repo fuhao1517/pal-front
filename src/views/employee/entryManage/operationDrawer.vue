@@ -1,0 +1,275 @@
+<template>
+  <div class="content">
+    <header class="header">
+      <div class="header-left">
+        <span>需签署的文件：</span>
+        <p style="padding-left:15px; font-size:13px;" class="text-center f-cursor pt-5 pr-15 pb-5" :class="{active:index===current}" v-for="(item,index) in operationData" :key="index"
+           @click="handleSelectFile(index,item)">{{item.fileType}}</p>
+      </div>
+      <div class="header-right">
+        <img class="ml-20 f-cursor" src="@/assets/images/icons/ic-account-type13.png" @click="handleClose">
+      </div>
+    </header>
+
+    <div class="main clearfix">
+      <iframe class="fl" :src="operationData[current].fileUrl" frameborder="0" width="70%" height="700px"></iframe>
+      <div class="fr main-right mr-10">
+        <div class="info-top mb-20">
+          <p class="info-title">签署信息</p>
+          <!-- 2：待员工签署，3：待仕邦签署，5：已完成签署，7：放弃签署 -->
+          <img v-if="signType===2" class="sign-type" src="@/assets/images/icons/fileSign-type2.png">
+          <img v-if="signType===3" class="sign-type" src="@/assets/images/icons/fileSign-type3.png">
+          <img v-if="signType===5" class="sign-type" src="@/assets/images/icons/fileSign-type5.png">
+          <img v-if="signType===7" class="sign-type" src="@/assets/images/icons/fileSign-type7.png">
+          <el-form class="ml-20" :inline="false" ref="signInfoForm">
+            <el-form-item>
+              <p>员工姓名：{{operationInfo.name}}</p>
+            </el-form-item>
+            <el-form-item>
+              <p>证件号码：{{operationInfo.idCard}}</p>
+            </el-form-item>
+            <el-form-item>
+              <p>签约主体：{{operationInfo.optrCompName}}</p>
+            </el-form-item>
+            <el-form-item>
+              <p>文件类型：{{signInfoForm.fileType}}</p>
+            </el-form-item>
+            <el-form-item>
+              <p>文件名称：{{signInfoForm.contractName}}</p>
+            </el-form-item>
+          </el-form>
+        </div>
+        <!-- <div class="operation-center mb-20">
+          <p class="info-title">签署操作</p>
+          <div class="operation-btn">
+            <el-button @click="handleOperation(1)" style="margin-right:50px;" class="s-btn btn&#45;&#45;border-blue" size="small">放弃签署</el-button>
+            <el-button @click="handleOperation(2)" size="small" type="primary">重新签署</el-button>
+          </div>
+        </div> -->
+        <div class="record-bottom">
+          <p class="info-title">操作记录</p>
+          <div class="detail-box">
+            <div class="detail" v-for="(item,index) in processMap" :key="index">
+              <el-popover v-if="processMap.length>=1" placement="left" width="300" trigger="hover">
+                <div v-if="item.statusName==='发起签署'" class="mt-10 mb-10 f-cursor one-1" slot="reference">{{item.statusName}}</div>
+                <div v-else class="f-cursor one-3" slot="reference">{{item.statusName}}</div>
+                <el-form class="ml-20" :inline="false" ref="signInfoForm">
+                  <el-form-item label="操作人">
+                    <p>{{item.createName}}</p>
+                  </el-form-item>
+                  <el-form-item label="操作日期">
+                    <p>{{item.createTime}}</p>
+                  </el-form-item>
+                  <el-form-item label="操作状态">
+                    <p>{{item.statusName}}</p>
+                  </el-form-item>
+                  <el-form-item label="失败原因" v-if="item.status=='7'||item.status=='8'">
+                    <p>{{item.cause}}</p>
+                  </el-form-item>
+                </el-form>
+              </el-popover>
+              <img v-if="index !== processMap.length-1" src="@/assets/images/icons/bottom-arrows.png" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+  export default {
+    inject: ['reload'],
+    props: ['operationData', 'operationInfo'],
+    data() {
+      return {
+        current: 0,
+        signInfoForm: {
+          fileType: '',
+          contractName: ''
+        },
+        signType: '',
+        dialogFormVisible: false,
+        causeForm: {
+          cause: ''
+        },
+        causeTitle: '',
+        processMap: [],
+        previewUrl: '/api/entryresign/pdfView',
+        placeholderText: '',
+        buttonText: '',
+        warningText: '',
+        id: ''
+      }
+    },
+    mounted() {
+      this.signInfoForm.fileType = this.operationData[0].fileType
+      this.signInfoForm.contractName = this.operationData[0].contractName
+      this.signType = this.operationData[0].signStatus
+      this.processMap = this.operationData[0].processMap
+      this.id = this.operationData[0].id
+      this.dynamicStep()
+    },
+    methods: {
+      /* 关闭 */
+      handleClose() {
+        this.reload()
+      },
+      /* 文件选择 */
+      handleSelectFile(index, item) {
+        this.current = index
+        this.signType = item.signStatus
+        this.signInfoForm.fileType = item.fileType
+        this.signInfoForm.contractName = item.contractName
+        this.processMap = item.processMap
+        this.id = item.id
+        this.dynamicStep()
+      },
+      /* 动态渲染操作流程 */
+      dynamicStep() {
+        if (this.processMap.length === 3) {
+          setTimeout(() => {
+            this.$refs.popoverThree.style.marginLeft = '185px'
+          }, 100)
+        }
+      },
+    }
+  }
+</script>
+
+<style lang="less" scoped>
+  .content {
+    position: relative;
+
+    .header {
+      display: flex;
+      background: #ffffff;
+      justify-content: space-between;
+      align-items: center;
+      height: 90px;
+      padding: 0 20px 0 29px;
+      border-bottom: 20px solid #f0f2f5;
+      .header-left, .header-right {
+        display: flex;
+        align-items: center;
+      }
+
+      .header-left {
+        font-size: 13px;
+        color: #222;
+      }
+
+      .header-right {
+        .el-button {
+          width: 100px;
+          height: 32px;
+        }
+      }
+
+      .active {
+        border-bottom: 2px solid #409EFF;
+      }
+    }
+
+    .main {
+      margin-top: 65px;
+      padding: 20px 0 0 20px;
+      .main-right {
+        width: 28%;
+        .info-top, .operation-center, .record-bottom {
+          border: 1px solid #ddd;
+          padding: 0 10px;
+          position: relative;
+
+          .info-title {
+            height: 40px;
+            line-height: 40px;
+            border-bottom: 1px solid #ddd;
+            padding-left: 10px;
+          }
+
+          .sign-type {
+            position: absolute;
+            right: 0;
+            top: 0;
+          }
+        }
+
+        .operation-center {
+          .operation-btn {
+            height: 110px;
+            text-align: center;
+            line-height: 110px;
+          }
+        }
+
+        .record-bottom {
+          .detail-box{
+            height: 400px;
+            overflow-y: scroll;
+            .detail {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              .one-1 {
+                width: 75px;
+                height: 32px;
+                background: #93D34D;
+                color: #fff;
+                text-align: center;
+                line-height: 32px;
+                border-radius: 2px;
+              }
+              .one-3 {
+                width: 121px;
+                height: 62px;
+                text-align: center;
+                line-height: 62px;
+                background: url('../../../assets/images/icons/rhombus.png') no-repeat;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .cause-dialog {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+
+      .cause-view {
+        position: fixed;
+        width: 600px;
+        height: 335px;
+        border-radius: 5px;
+        background: #fff;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -55%);
+        text-align: center;
+        border: 1px solid #ddd;
+
+        .title-top {
+          font-size: 18px;
+          height: 60px;
+          line-height: 60px;
+          text-align: left;
+          border-bottom: 1px solid #BFBFBF;
+        }
+      }
+    }
+  }
+
+  /deep/ .el-form-item {
+    margin-bottom: 0px !important;
+  }
+
+  .el-form-item__label {
+    line-height: 40px;
+  }
+</style>

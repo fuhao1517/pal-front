@@ -1,0 +1,164 @@
+.emp-title {
+  .emp-title-content {
+    height: 70px;
+    background-color: #fff;
+    padding-left: 20px;
+    .name-idcard{
+      padding-top: 12px;
+    }
+    .name{
+      font-size: 18px;
+    }
+    .idcard{
+      margin-top: 3px;
+    }
+  }
+  .add-title {
+    line-height: 70px;
+  }
+  .title {
+    font-size: 18px;
+  }
+  .text {
+    margin-left: 20px;
+  }
+}
+
+/deep/ .el-table {
+  margin-top: 0;
+}
+
+.dash-gray-btn {
+  border: 1px dashed rgba(206, 206, 206, 1);
+  height: 50px;
+  width: 100%;
+  margin-top: 10px;
+  font-size: @comFontSize;
+  /deep/ [class*=" el-icon-"], /deep/ [class^=el-icon-] {
+    font-weight: bold;
+  }
+}
+
+.dash-gray-btn:hover {
+  border-color: @blueColor;
+}
+
+.ic-empAdd-type {
+  display: inline-block;
+  margin-right: 5px;
+  vertical-align: middle;
+  margin-top: -3px;
+}
+
+.ic-empAdd-type1 {
+  width: 16px;
+  height: 16px;
+  background: url(../../assets/images/icons/ic-account-type17.png);
+}
+
+.ic-empAdd-type2 {
+  width: 15px;
+  height: 16px;
+  background: url(../../assets/images/icons/ic-account-type30.png);
+}
+.ic-empAdd-type3 {
+  width: 22px;
+  height: 16px;
+  background: url(../../assets/images/icons/ic-account-type23.png);
+}
+
+.emp-add-container-main {
+  position: relative;
+  height: 100%;
+  background-color: @bodyBaseBgc;
+}
+
+.emp-add-container {
+  position: relative;
+  text-align: left;
+  padding-bottom: 70px;
+}
+
+.content-panel {
+  display: inline-block;
+  text-align: left;
+  width: 100%;
+  padding: 0 22px;
+  box-sizing: border-box;
+  margin-top: 10px;
+  background-color: #fff;
+}
+
+.add-type {
+  height: 60px;
+  line-height: 60px;
+  border-bottom: 1px solid rgba(206, 206, 206, 1);
+}
+.contract-panel{
+  .add-type-form .el-form-item{
+    margin-top: 15px;
+    padding-bottom: 15px;
+    margin-bottom: 0;
+  }
+  .fileName{
+    padding: 0 10px;
+    cursor: pointer;
+    .ic-del{
+      display: none;
+      margin-left: 10px;
+    }
+    .ic-success{
+      margin-left: 10px;
+    }
+  }
+  .pop-fileName{
+    border-bottom: 1px solid #dbdbdb;
+  }
+  .pop-fileName:last-of-type{
+    border-bottom: none;
+  }
+  .fileName:hover{
+    background-color: rgba(245,247,250,1);
+    .ic-success{
+      display: none;
+    }
+    .ic-del{
+      display: inline-block;
+    }
+  }
+}
+.step-title {
+  font-size: 16px;
+  padding-left: 10px;
+  font-weight: bold;
+}
+
+.add-type2 {
+  font-weight: bold;
+  padding: 20px 0 19px 30px;
+  border-top: 1px solid rgba(206, 206, 206, 1);
+}
+
+.add-type-form {
+  padding-top: 20px;
+  .el-form-item {
+    margin-bottom: 18px;
+  }
+  .fieldName {
+    margin-bottom: 8px;
+  }
+  .addr-select {
+    width: 20%;
+    max-width: 160px;
+    min-width: 100px;
+    margin-right: 10px;
+  }
+}
+
+.add-type-table {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+/deep/ .ic-addr {
+  margin-top: 13px !important;
+}
